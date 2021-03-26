@@ -30,6 +30,8 @@ type Badge struct {
 }
 
 type Personne struct {
+	nom         string
+	prenom      string
 	identifiant int
 	role        RolePersonne
 	badge       Badge

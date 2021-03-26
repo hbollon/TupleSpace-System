@@ -11,9 +11,18 @@ import (
 
 const expireTimer = 600
 
+func addStudent() {
+	recv1 := spacePersonnes.Read(tuplespace.New(0))
+	tuple := <-recv1
+	var studentList []Personne = tuple.Values()[0].([]Personne)
+	for i, personne := range studentList {
+		fmt.Printf("%d - %s %s\n", i+1, personne.nom, personne.prenom)
+	}
+}
+
 func printChoice(timer int) {
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Println("Que voulez-vous faire ?")
+	fmt.Println("\nQue voulez-vous faire ?")
 	fmt.Printf("Timer: %d\n", timer)
 	fmt.Println("1 - Faire entrez une personne dans une salle")
 	fmt.Println("2 - Faire sortir une personne d'une salle")
@@ -27,7 +36,7 @@ func printChoice(timer int) {
 		inputText = strings.Replace(inputText, "\n", "", -1)
 		switch inputText {
 		case "1":
-			fmt.Println("one")
+			addStudent()
 			validInput = true
 		case "2":
 			fmt.Println("two")
@@ -49,9 +58,10 @@ func printChoice(timer int) {
 }
 
 func main() {
-	for _, personne := range listePersonne {
+	/*for _, personne := range listePersonne {
 		spacePersonnes.Write(tuplespace.New(expireTimer, personne))
-	}
+	}*/
+	spacePersonnes.Write(tuplespace.New(expireTimer, listePersonne))
 
 	for {
 		printChoice(0)

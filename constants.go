@@ -2,6 +2,8 @@ package main
 
 var listePersonne = []Personne{
 	{
+		nom:         "Bollon",
+		prenom:      "Hugo",
 		identifiant: 1,
 		role:        Enseigant,
 		badge: Badge{
@@ -11,6 +13,8 @@ var listePersonne = []Personne{
 	},
 
 	{
+		nom:         "Rodriguez-Lozano",
+		prenom:      "Samuel",
 		identifiant: 2,
 		role:        Enseigant,
 		badge: Badge{
@@ -20,6 +24,8 @@ var listePersonne = []Personne{
 	},
 
 	{
+		nom:         "Kubasik",
+		prenom:      "Tom",
 		identifiant: 3,
 		role:        Etudiant,
 		badge: Badge{
@@ -29,10 +35,23 @@ var listePersonne = []Personne{
 	},
 
 	{
+		nom:         "Cutting",
+		prenom:      "Laurent",
 		identifiant: 4,
 		role:        Etudiant,
 		badge: Badge{
 			identifiant: 4,
+			actif:       true,
+		},
+	},
+
+	{
+		nom:         "Hersemeule",
+		prenom:      "Hugo",
+		identifiant: 5,
+		role:        Etudiant,
+		badge: Badge{
+			identifiant: 5,
 			actif:       true,
 		},
 	},
