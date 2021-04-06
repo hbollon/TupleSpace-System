@@ -11,15 +11,6 @@ import (
 
 const expireTimer = 600
 
-func addStudent() {
-	recv1 := spacePersonnes.Read(tuplespace.New(0))
-	tuple := <-recv1
-	var studentList []Personne = tuple.Values()[0].([]Personne)
-	for i, personne := range studentList {
-		fmt.Printf("%d - %s %s\n", i+1, personne.nom, personne.prenom)
-	}
-}
-
 func printChoice(timer int) {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("\nQue voulez-vous faire ?")
@@ -36,7 +27,7 @@ func printChoice(timer int) {
 		inputText = strings.Replace(inputText, "\n", "", -1)
 		switch inputText {
 		case "1":
-			addStudent()
+			spacePersonnes.addPerson()
 			validInput = true
 		case "2":
 			fmt.Println("two")
@@ -58,16 +49,14 @@ func printChoice(timer int) {
 }
 
 func main() {
-	/*for _, personne := range listePersonne {
-		spacePersonnes.Write(tuplespace.New(expireTimer, personne))
-	}*/
+	initSpaces()
 	spacePersonnes.Write(tuplespace.New(expireTimer, listePersonne))
+	spaceBatiment.Write(tuplespace.New(expireTimer, listeBatiments))
+	listeBatiments[0].personnes.TupleSpace.Write(tuplespace.New(expireTimer, listePersonne[0]))
+	listeBatiments[2].personnes.TupleSpace.Write(tuplespace.New(expireTimer, listePersonne[3]))
+	listeBatiments[2].personnes.TupleSpace.Write(tuplespace.New(expireTimer, listePersonne[4]))
 
 	for {
 		printChoice(0)
 	}
-
-	recv1 := spacePersonnes.Read(tuplespace.New(expireTimer, listePersonne[2]))
-	t1 := <-recv1
-	fmt.Println(t1.Values())
 }

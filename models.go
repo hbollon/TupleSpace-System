@@ -38,11 +38,12 @@ type Personne struct {
 }
 
 type Batiment struct {
-	nom    string
-	porte  bool
-	role   RoleSalle
-	alarme bool
-	laser  bool
+	nom       string
+	porte     bool
+	role      RoleSalle
+	alarme    bool
+	laser     bool
+	personnes TupleSpacePersonnes
 }
 
 type JournalDeBord struct {
