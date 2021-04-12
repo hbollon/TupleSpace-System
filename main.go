@@ -30,16 +30,19 @@ func printChoice(timer int) {
 			spacePersonnes.addPerson()
 			validInput = true
 		case "2":
-			fmt.Println("two")
+			spacePersonnes.removePerson()
 			validInput = true
 		case "3":
-			fmt.Println("three")
+			spacePersonnes.addbadge()
 			validInput = true
 		case "4":
-			fmt.Println("four")
+			spacePersonnes.desactiverBadge()
 			validInput = true
 		case "5":
-			fmt.Println("five")
+			listPersonne := spaceBatiment.getAllPersonneInBatiment()
+			for _, personne := range listPersonne {
+				fmt.Printf("%s %s\n", personne.nom, personne.prenom)
+			}
 			validInput = true
 		default:
 			fmt.Println("Input invalide! Refaites votre choix")
@@ -53,8 +56,7 @@ func main() {
 	spacePersonnes.Write(tuplespace.New(expireTimer, listePersonne))
 	spaceBatiment.Write(tuplespace.New(expireTimer, listeBatiments))
 	listeBatiments[0].personnes.TupleSpace.Write(tuplespace.New(expireTimer, listePersonne[0]))
-	listeBatiments[2].personnes.TupleSpace.Write(tuplespace.New(expireTimer, listePersonne[3]))
-	listeBatiments[2].personnes.TupleSpace.Write(tuplespace.New(expireTimer, listePersonne[4]))
+	listeBatiments[0].personnes.TupleSpace.Write(tuplespace.New(expireTimer, listePersonne[1]))
 
 	for {
 		printChoice(0)

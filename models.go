@@ -4,15 +4,6 @@ import "fmt"
 
 var emptyBadge = Badge{}
 
-type RolePersonne int
-
-const (
-	Enseigant RolePersonne = iota
-	Chercheur
-	PersonnelAdministratif
-	Etudiant
-)
-
 type RoleSalle int
 
 const (
@@ -22,6 +13,14 @@ const (
 	SalleTD
 	SalleMultimedia
 	SalleLangue
+)
+
+type RolePersonne []RoleSalle
+
+var (
+	EnseigantChercheur     RolePersonne = []RoleSalle{SalleTP, SalleTD, Bureau, SalleExperimentation, SalleMultimedia, SalleLangue}
+	PersonnelAdministratif              = []RoleSalle{SalleTP, SalleTD, Bureau, SalleExperimentation, SalleMultimedia, SalleLangue}
+	Etudiant                            = []RoleSalle{SalleTP, SalleTD, SalleLangue, SalleMultimedia}
 )
 
 type Badge struct {

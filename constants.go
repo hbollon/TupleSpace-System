@@ -1,13 +1,21 @@
 package main
 
-import "github.com/hbollon/go-tuplespace"
+import (
+	"time"
+
+	"github.com/hbollon/go-tuplespace"
+)
+
+const (
+	doorTimerDur = 10 * time.Second
+)
 
 var listePersonne = []Personne{
 	{
 		nom:         "Bollon",
 		prenom:      "Hugo",
 		identifiant: 1,
-		role:        Enseigant,
+		role:        EnseigantChercheur,
 		badge: Badge{
 			identifiant: 1,
 			actif:       true,
@@ -18,7 +26,7 @@ var listePersonne = []Personne{
 		nom:         "Rodriguez-Lozano",
 		prenom:      "Samuel",
 		identifiant: 2,
-		role:        Enseigant,
+		role:        EnseigantChercheur,
 		badge: Badge{
 			identifiant: 2,
 			actif:       true,
@@ -51,7 +59,7 @@ var listePersonne = []Personne{
 		nom:         "Hersemeule",
 		prenom:      "Hugo",
 		identifiant: 5,
-		role:        Etudiant,
+		role:        EnseigantChercheur,
 		badge: Badge{
 			identifiant: 5,
 			actif:       true,
