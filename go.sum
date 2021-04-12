@@ -1,4 +1,15 @@
+github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/google/uuid v1.2.0 h1:qJYtXnJRWmpe7m/3XlyhrsLrEURqHRM2kxzoxXqyUDs=
 github.com/google/uuid v1.2.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
-github.com/hbollon/go-tuplespace v0.1.1 h1:r9uqLrfiqxzv6RSnj9KThzZvbWwgTUbE81toVYpd6z4=
-github.com/hbollon/go-tuplespace v0.1.1/go.mod h1:ybE+SKmkBwYZkajM594MOK0vW3tCcDjNDteUsqdXWT8=
+github.com/hbollon/go-tuplespace v0.1.2-0.20210406084545-f61e38ad975d h1:/k7qeEFz7VRjbTlwU2zrbc8StRYS8Z0xc6+Fo3oh4cw=
+github.com/hbollon/go-tuplespace v0.1.2-0.20210406084545-f61e38ad975d/go.mod h1:ybE+SKmkBwYZkajM594MOK0vW3tCcDjNDteUsqdXWT8=
+github.com/hbollon/go-tuplespace v0.1.2-0.20210412081140-13fa6b894081 h1:162dwBDY+zweh276pS1FrDd5fKtpC5FELjPSqwxCPfI=
+github.com/hbollon/go-tuplespace v0.1.2-0.20210412081140-13fa6b894081/go.mod h1:ybE+SKmkBwYZkajM594MOK0vW3tCcDjNDteUsqdXWT8=
+github.com/hbollon/go-tuplespace v0.1.2-0.20210412081953-043e89f392ed h1:DADCYL7vatjuQIlMfYC82nUWRt7NdmgYVuKz+2XKhDs=
+github.com/hbollon/go-tuplespace v0.1.2-0.20210412081953-043e89f392ed/go.mod h1:F+gs0dkUSSVG3umSOMHmG8DTVzq2SlOwFlpyFTdG0f0=
+github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
+github.com/sirupsen/logrus v1.8.1 h1:dJKuHgqk1NNQlqoA6BTlM1Wf9DOH3NBjQyu0h9+AZZE=
+github.com/sirupsen/logrus v1.8.1/go.mod h1:yWOB1SBYBC5VeMP7gHvWumXLIWorT60ONWic61uBYv0=
+github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
+golang.org/x/sys v0.0.0-20191026070338-33540a1f6037 h1:YyJpGZS1sBuBCzLAR1VEpK193GlqGZbnPFnPV/5Rsb4=
+golang.org/x/sys v0.0.0-20191026070338-33540a1f6037/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
