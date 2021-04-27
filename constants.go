@@ -130,6 +130,6 @@ var listeBatiments = []Batiment{
 		alarme:        false,
 		laser:         true,
 		personnes:     TupleSpacePersonnes{TupleSpace: tuplespace.NewSpace()},
-		accessControl: TupleSpaceService{},
+		accessControl: TupleSpaceService{TupleSpace: tuplespace.NewSpace()},
 	},
 }

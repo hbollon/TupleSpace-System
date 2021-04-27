@@ -84,7 +84,13 @@ func (space *TupleSpacePersonnes) addPerson() bool {
 		validInput = false
 		for !validInput {
 			for i, batiment := range batimentList {
-				fmt.Printf("%d - %s\n", i+1, batiment.nom)
+				var str string
+				recv := batiment.accessControl.Read(tuplespace.New(0, "door timer"))
+				tuple := <-recv
+				if tuple != nil && !tuple.IsExpired() {
+					str = " - Porte encore ouverte, accès interdit!"
+				}
+				fmt.Printf("%d - %s%s\n", i+1, batiment.nom, str)
 			}
 			fmt.Println("\nDans quel batiment ?")
 			inputText, _ := reader.ReadString('\n')
@@ -99,14 +105,12 @@ func (space *TupleSpacePersonnes) addPerson() bool {
 		batimentChoice := batimentList[inputBatiment-1]
 		if batimentChoice.personHaveAccess(studentList[inputPersonne-1]) {
 			spaceBatiment.addPersonneInBatiment(studentList[inputPersonne-1], batimentChoice)
-			/*
-				speech.Speak(
-					fmt.Sprintf("%s %s est entré dans le batiment %s.\n",
-						studentList[inputPersonne-1].prenom,
-						studentList[inputPersonne-1].nom,
-						batimentChoice.nom),
-				)
-			*/
+			speech.Speak(
+				fmt.Sprintf("%s %s est entré dans le batiment %s.\n",
+					studentList[inputPersonne-1].prenom,
+					studentList[inputPersonne-1].nom,
+					batimentChoice.nom),
+			)
 			if !batimentChoice.checkDoorTimer() {
 				go func() {
 					for i := 0; i < 3; i++ {
