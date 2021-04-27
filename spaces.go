@@ -39,6 +39,24 @@ func initSpaces() {
 	spaceBatiment.TupleSpace = tuplespace.NewSpace()
 }
 
+func (bat *Batiment) checkDoorTimer() bool {
+	recv := bat.accessControl.Read(tuplespace.New(0, "door timer"))
+	tuple := <-recv
+	if tuple == nil {
+		bat.accessControl.Write(tuplespace.New(doorTimerDur, "door timer"))
+		logrus.Debug("creation")
+		logrus.Info("Entrée autorisé !")
+		return true
+	} else if tuple.IsExpired() {
+		tuple.Renew()
+		logrus.Debug("renew")
+		logrus.Info("Entrée autorisé !")
+		return true
+	}
+	logrus.Error("Attention ! Entrée non autorisé !")
+	return false
+}
+
 func (space *TupleSpacePersonnes) addPerson() bool {
 	recv1 := space.Read(tuplespace.New(0))
 	tuple := <-recv1
@@ -81,10 +99,27 @@ func (space *TupleSpacePersonnes) addPerson() bool {
 		batimentChoice := batimentList[inputBatiment-1]
 		if batimentChoice.personHaveAccess(studentList[inputPersonne-1]) {
 			spaceBatiment.addPersonneInBatiment(studentList[inputPersonne-1], batimentChoice)
-			fmt.Printf("%s %s est entré dans le batiment %s.\n",
-				studentList[inputPersonne-1].prenom,
-				studentList[inputPersonne-1].nom,
-				batimentChoice.nom)
+			/*
+				speech.Speak(
+					fmt.Sprintf("%s %s est entré dans le batiment %s.\n",
+						studentList[inputPersonne-1].prenom,
+						studentList[inputPersonne-1].nom,
+						batimentChoice.nom),
+				)
+			*/
+			if !batimentChoice.checkDoorTimer() {
+				go func() {
+					for i := 0; i < 3; i++ {
+						speech.Speak("Attention alarme !")
+					}
+				}()
+			} else {
+				recv1 := space.Read(tuplespace.New(expireTimer, "Door Timer"))
+				doorOpenService := <-recv1
+				if doorOpenService != nil {
+					doorOpenService.Renew()
+				}
+			}
 		} else {
 			fmt.Printf("%s %s n'a pas le droit d'entré dans le batiment %s.\n",
 				studentList[inputPersonne-1].prenom,
@@ -97,7 +132,6 @@ func (space *TupleSpacePersonnes) addPerson() bool {
 			studentList[inputPersonne-1].nom)
 		return false
 	}
-
 	return true
 }
 
@@ -128,7 +162,6 @@ func (space *TupleSpacePersonnes) removePerson() bool {
 	for i, personne := range studentList {
 		fmt.Printf("%d - %s %s\n", i+1, personne.nom, personne.prenom)
 	}
-
 	fmt.Println("\nQuelle personne voulez faire sortir des batiments ?")
 	var validInput bool
 	var inputPersonne int
@@ -172,7 +205,6 @@ func (space *TupleSpacePersonnes) removePerson() bool {
 			studentList[inputPersonne-1].nom)
 		return false
 	}
-	return true
 }
 
 func (space *TupleSpaceBatiment) findInBatiments(p Personne) Batiment {
@@ -192,7 +224,6 @@ func (space *TupleSpaceBatiment) findInBatiments(p Personne) Batiment {
 			}
 		}
 	}
-
 	return findedBatiment
 }
 

@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 var emptyBadge = Badge{}
 
@@ -37,12 +39,13 @@ type Personne struct {
 }
 
 type Batiment struct {
-	nom       string
-	porte     bool
-	role      RoleSalle
-	alarme    bool
-	laser     bool
-	personnes TupleSpacePersonnes
+	nom           string
+	porte         bool
+	role          RoleSalle
+	alarme        bool
+	laser         bool
+	personnes     TupleSpacePersonnes
+	accessControl TupleSpaceService
 }
 
 type JournalDeBord struct {

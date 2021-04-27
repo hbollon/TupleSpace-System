@@ -9,12 +9,11 @@ import (
 	"github.com/hbollon/go-tuplespace"
 )
 
-const expireTimer = 600
+const expireTimer = 100000
 
-func printChoice(timer int) {
+func printChoice() {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("\nQue voulez-vous faire ?")
-	fmt.Printf("Timer: %d\n", timer)
 	fmt.Println("1 - Faire entrez une personne dans une salle")
 	fmt.Println("2 - Faire sortir une personne d'une salle")
 	fmt.Println("3 - Creer un badge")
@@ -59,6 +58,6 @@ func main() {
 	listeBatiments[0].personnes.TupleSpace.Write(tuplespace.New(expireTimer, listePersonne[1]))
 
 	for {
-		printChoice(0)
+		printChoice()
 	}
 }

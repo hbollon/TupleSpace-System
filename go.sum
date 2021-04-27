@@ -7,6 +7,8 @@ github.com/hbollon/go-tuplespace v0.1.2-0.20210412081140-13fa6b894081 h1:162dwBD
 github.com/hbollon/go-tuplespace v0.1.2-0.20210412081140-13fa6b894081/go.mod h1:ybE+SKmkBwYZkajM594MOK0vW3tCcDjNDteUsqdXWT8=
 github.com/hbollon/go-tuplespace v0.1.2-0.20210412081953-043e89f392ed h1:DADCYL7vatjuQIlMfYC82nUWRt7NdmgYVuKz+2XKhDs=
 github.com/hbollon/go-tuplespace v0.1.2-0.20210412081953-043e89f392ed/go.mod h1:F+gs0dkUSSVG3umSOMHmG8DTVzq2SlOwFlpyFTdG0f0=
+github.com/hegedustibor/htgo-tts v0.0.0-20210201070456-160968fe187c h1:Np7TgCBSR2CzNs2M/9OzJlS1QqJA+Mj7ee7LPwLc3bc=
+github.com/hegedustibor/htgo-tts v0.0.0-20210201070456-160968fe187c/go.mod h1:RMCXb2VPY7VmPHclIib3rBrcDTJuOUlVnQwp8iBJNTo=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/sirupsen/logrus v1.8.1 h1:dJKuHgqk1NNQlqoA6BTlM1Wf9DOH3NBjQyu0h9+AZZE=
 github.com/sirupsen/logrus v1.8.1/go.mod h1:yWOB1SBYBC5VeMP7gHvWumXLIWorT60ONWic61uBYv0=

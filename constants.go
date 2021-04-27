@@ -1,14 +1,15 @@
 package main
 
 import (
-	"time"
-
 	"github.com/hbollon/go-tuplespace"
+	htgotts "github.com/hegedustibor/htgo-tts"
 )
 
 const (
-	doorTimerDur = 10 * time.Second
+	doorTimerDur = 30
 )
+
+var speech = htgotts.Speech{Folder: "audio", Language: "fr"}
 
 var listePersonne = []Personne{
 	{
@@ -69,59 +70,66 @@ var listePersonne = []Personne{
 
 var listeBatiments = []Batiment{
 	{
-		nom:       "salle1",
-		porte:     true,
-		role:      SalleTD,
-		alarme:    false,
-		laser:     true,
-		personnes: TupleSpacePersonnes{TupleSpace: tuplespace.NewSpace()},
+		nom:           "salle1",
+		porte:         true,
+		role:          SalleTD,
+		alarme:        false,
+		laser:         true,
+		personnes:     TupleSpacePersonnes{TupleSpace: tuplespace.NewSpace()},
+		accessControl: TupleSpaceService{TupleSpace: tuplespace.NewSpace()},
 	},
 	{
-		nom:       "salle2",
-		porte:     false,
-		role:      SalleTD,
-		alarme:    false,
-		laser:     true,
-		personnes: TupleSpacePersonnes{TupleSpace: tuplespace.NewSpace()},
+		nom:           "salle2",
+		porte:         false,
+		role:          SalleTD,
+		alarme:        false,
+		laser:         true,
+		personnes:     TupleSpacePersonnes{TupleSpace: tuplespace.NewSpace()},
+		accessControl: TupleSpaceService{TupleSpace: tuplespace.NewSpace()},
 	},
 	{
-		nom:       "Bureau3",
-		porte:     false,
-		role:      Bureau,
-		alarme:    false,
-		laser:     true,
-		personnes: TupleSpacePersonnes{TupleSpace: tuplespace.NewSpace()},
+		nom:           "Bureau3",
+		porte:         false,
+		role:          Bureau,
+		alarme:        false,
+		laser:         true,
+		personnes:     TupleSpacePersonnes{TupleSpace: tuplespace.NewSpace()},
+		accessControl: TupleSpaceService{TupleSpace: tuplespace.NewSpace()},
 	},
 	{
-		nom:       "salle4",
-		porte:     false,
-		role:      SalleLangue,
-		alarme:    false,
-		laser:     true,
-		personnes: TupleSpacePersonnes{TupleSpace: tuplespace.NewSpace()},
+		nom:           "salle4",
+		porte:         false,
+		role:          SalleLangue,
+		alarme:        false,
+		laser:         true,
+		personnes:     TupleSpacePersonnes{TupleSpace: tuplespace.NewSpace()},
+		accessControl: TupleSpaceService{TupleSpace: tuplespace.NewSpace()},
 	},
 	{
-		nom:       "multimedia5",
-		porte:     true,
-		role:      SalleMultimedia,
-		alarme:    false,
-		laser:     true,
-		personnes: TupleSpacePersonnes{TupleSpace: tuplespace.NewSpace()},
+		nom:           "multimedia5",
+		porte:         true,
+		role:          SalleMultimedia,
+		alarme:        false,
+		laser:         true,
+		personnes:     TupleSpacePersonnes{TupleSpace: tuplespace.NewSpace()},
+		accessControl: TupleSpaceService{TupleSpace: tuplespace.NewSpace()},
 	},
 	{
-		nom:       "salle6",
-		porte:     true,
-		role:      SalleTP,
-		alarme:    false,
-		laser:     true,
-		personnes: TupleSpacePersonnes{TupleSpace: tuplespace.NewSpace()},
+		nom:           "salle6",
+		porte:         true,
+		role:          SalleTP,
+		alarme:        false,
+		laser:         true,
+		personnes:     TupleSpacePersonnes{TupleSpace: tuplespace.NewSpace()},
+		accessControl: TupleSpaceService{TupleSpace: tuplespace.NewSpace()},
 	},
 	{
-		nom:       "salle7",
-		porte:     true,
-		role:      SalleTD,
-		alarme:    false,
-		laser:     true,
-		personnes: TupleSpacePersonnes{TupleSpace: tuplespace.NewSpace()},
+		nom:           "salle7",
+		porte:         true,
+		role:          SalleTD,
+		alarme:        false,
+		laser:         true,
+		personnes:     TupleSpacePersonnes{TupleSpace: tuplespace.NewSpace()},
+		accessControl: TupleSpaceService{},
 	},
 }
